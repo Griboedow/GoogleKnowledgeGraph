@@ -1,4 +1,4 @@
-( function ( $ ) {
+( function ( mw, $ ) {
 	$(".googleKnowledgeGraph").each( function() {
 		var element = $( this );
 		$.ajax({
@@ -15,6 +15,6 @@
 			}
 		});
 	});
-}( jQuery ) );
+}( mediaWiki, jQuery ) );
 
 
