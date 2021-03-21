@@ -19,5 +19,11 @@ https://console.cloud.google.com/flows/enableapi?apiid=kgsearch.googleapis.com&c
 
 # Usage
 To use the extension add on a page tag:
+
+```html
 <GoogleKnowledgeGraph query="Mario">
+```
 and save the page
+
+You'll get something like that:
+![GKG_sample](https://user-images.githubusercontent.com/4194526/111924847-ad33f600-8aa6-11eb-9eee-303169491641.jpg)
