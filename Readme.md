@@ -9,8 +9,8 @@ To install the extension, place the folder in ./extensions and add in LocalSetti
 
 ```php
 wfLoadExtension( 'GoogleKnowledgeGraph' );
-$wgApiToken = 'your-google-token';
-$wgApiLanguage = 'en';
+$wgGoogleApiToken = 'your-google-token';
+$wgGoogleApiLanguage = 'en';
 ```
 
 # Where to get Google API token
