@@ -7,10 +7,11 @@ Using it in production is not recommended: Google provides only 100 000 requests
 # Installation and configuration
 To install the extension, place the folder in ./extensions and add in LocalSettings.php:
 
- wfLoadExtension( 'GoogleKnowledgeGraph' );
- $wgApiToken = 'your-google-token';
- $wgApiLanguage = 'en';
-
+```php
+wfLoadExtension( 'GoogleKnowledgeGraph' );
+$wgApiToken = 'your-google-token';
+$wgApiLanguage = 'en';
+```
 
 # Where to get Google API token
 You can get token on:
