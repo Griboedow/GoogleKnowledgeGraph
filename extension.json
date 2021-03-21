@@ -1,0 +1,66 @@
+{
+	"name": "GoogleKnowledgeGraph",
+	"version": "0.1.0",
+	"author": [
+		"Nikolai Kochkin"
+	],
+	"url": "https://habr.com/ru/post/544534/",
+	"descriptionmsg": "googleknowledgegraph-description",
+	"license-name": "GPL-2.0-or-later",
+	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.29.0"
+	},
+	"APIModules": {
+		"askgoogleknowledgegraph": "ApiAskGoogleKnowledgeGraph"
+	},
+	"MessagesDirs": {
+		"GoogleKnowledgeGraph": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"GoogleKnowledgeGraphHooks": "includes/GoogleKnowledgeGraph.hooks.php",
+		"ApiAskGoogleKnowledgeGraph": "includes/ApiAskGoogleKnowledgeGraph.php"
+	},
+	"ResourceModules": {
+		"ext.GoogleKnowledgeGraph": {	
+			"localBasePath": "modules/ext.GoogleKnowledgeGraph",
+			"remoteExtPath": "GoogleKnowledgeGraph/modules/ext.GoogleKnowledgeGraph",
+			"scripts": [
+				"ext.GoogleKnowledgeGraph.js"
+			],
+			"styles": [
+				"ext.GoogleKnowledgeGraph.css"
+			],
+			"dependencies": [
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "GoogleKnowledgeGraph/modules"
+	},
+	"Hooks": {
+		"BeforePageDisplay": "GoogleKnowledgeGraphHooks::onBeforePageDisplay",
+		"ParserFirstCallInit": "GoogleKnowledgeGraphHooks::onParserSetup"
+	},
+	"config": {
+		"GoogleApiLanguage": {
+			"value": "ru",
+			"path": false,
+			"description": "In which language you want to get result from the Knowledge Graph",
+			"public": true
+		},
+		"GoogleApiToken": {
+			"value": "",
+			"path": false,
+			"description": "API token to be used with Google API",
+			"public": false
+		}
+	},
+	"ConfigRegistry": {
+		"GoogleKnowledgeGraph": "GlobalVarConfig::newInstance"
+	},
+	"manifest_version": 2
+}
