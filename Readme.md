@@ -1,7 +1,7 @@
-Google Knowledge Graph extension adds short descriptions for specified terms.
+Google Knowledge Graph MediaWiki extension adds tooltips with short description about specified terms. The description received automatically from Google Knowledge Graph. 
 
 # Warning
-The extension is provided only for education purpose. 
+**The extension is provided only for education purposes.**
 Using it in production is not recommended: Google provides only 100 000 requests for free. 
 
 # Installation and configuration
