@@ -7,9 +7,9 @@ Using it in production is not recommended: Google provides only 100 000 requests
 # Installation and configuration
 To install the extension, place the folder in ./extensions and add in LocalSettings.php:
 
-wfLoadExtension( 'GoogleKnowledgeGraph' );
-$gkgApiToken = 'your-google-token';
-$gkgApiLanguage = 'ru,en';
+ wfLoadExtension( 'GoogleKnowledgeGraph' );
+ $wgApiToken = 'your-google-token';
+ $wgApiLanguage = 'en';
 
 
 # Where to get Google API token
@@ -18,5 +18,5 @@ https://console.cloud.google.com/flows/enableapi?apiid=kgsearch.googleapis.com&c
 
 # Usage
 To use the extension add on a page tag:
-<GoogleKnowledgeGraph query="Moscow">
+<GoogleKnowledgeGraph query="Mario">
 and save the page
