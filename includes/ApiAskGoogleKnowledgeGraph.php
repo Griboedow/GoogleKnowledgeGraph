@@ -16,10 +16,12 @@ class ApiAskGoogleKnowledgeGraph extends ApiBase {
 		$description = ApiAskGoogleKnowledgeGraph::getGknDescription( $params['query'] );
 
 
-		//Определяем результат для Get запроса. 
+		/**
+		 * Определяем результат для Get запроса. 
+		 * На самом деле Post запрос отработает с тем же успехом, 
+		 * если специально не отслеживать тип запроса ¯\_(ツ)_/¯.
+		 */
 		$this->getResult()->addValue( null, "description", $description );
-		
-		//Post/Put/etc не определены, так что они вернут NotImplemented
 	}
 
 
@@ -41,8 +43,12 @@ class ApiAskGoogleKnowledgeGraph extends ApiBase {
      * предполагая, что самый первый результат и есть верный.
 	 */
 	private static function getGknDescription( $query ) {
-		// Вытаскиваем параметры языка и токен
 		
+		/**
+		 * Вытаскиваем параметры языка и токен.
+		 * Все параметры в LocalSettings.php имеют префикс wg, например wgGoogleApiToken.
+		 * Здесь же мы их указываем бех префикса
+		 */
 		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'GoogleKnowledgeGraph' );
 		$gkgToken = $config->get( 'GoogleApiToken' );
 		$gkgLang = $config->get( 'GoogleApiLanguage' );

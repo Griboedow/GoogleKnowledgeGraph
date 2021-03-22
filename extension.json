@@ -32,8 +32,6 @@
 			],
 			"styles": [
 				"ext.GoogleKnowledgeGraph.css"
-			],
-			"dependencies": [
 			]
 		}
 	},
