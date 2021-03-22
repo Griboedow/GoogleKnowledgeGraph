@@ -16,5 +16,3 @@
 		});
 	});
 }( mediaWiki, jQuery ) );
-
-
