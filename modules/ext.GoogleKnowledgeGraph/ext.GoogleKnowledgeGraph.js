@@ -1,17 +1,16 @@
 ( function ( mw, $ ) {
-	$(".googleKnowledgeGraph").each( function() {
-		var element = $( this );
+	$(".googleKnowledgeGraph").each( function(index, element) {
 		$.ajax({
 			type: "GET", 
 			url: mw.util.wikiScript( 'api' ),
 			data: { 
 				action: 'askgoogleknowledgegraph', 
-				query: element.text(),
+				query: $( element ).text(),
 				format: 'json',
 			},
 			dataType: 'json',
 			success: function( jsondata ){
-				element.prop( 'title', jsondata.description );
+				$( element ).prop( 'title', jsondata.description );
 			}
 		});
 	});
