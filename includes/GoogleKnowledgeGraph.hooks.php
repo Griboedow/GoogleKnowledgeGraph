@@ -6,22 +6,18 @@
 class GoogleKnowledgeGraphHooks {
 
 	/**
-	 * Добавляем подгрузку модуля 'ext.GoogleKnowledgeGraph' для всех страниц. 
-	 * Описание этого модуля есть в extension.json. 
+	 * Сработает хук после окончания работы парсера, но перед выводом html. 
+	 * Детали тут: https://www.mediawiki.org/wiki/Manual:Hooks/OutputPageParserOutput
 	 */
-	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
+	public static function onBeforeHtmlAddedToOutput( OutputPage &$out, ParserOutput $parserOutput ) {
+		// Добавляем подгрузку модуля фронтенда для всех страниц, его определение ищи в extension.json
 		$out->addModules( 'ext.GoogleKnowledgeGraph' );
-
-		/**
-		 * 'return true' означает, что инициализация парсера должна продолжиться в штатном режиме.
-		 * Иными словами, возвращаем всегда true.
-		 */ 
 		return true;
 	}
 
 	
 	/**
-	 * Расширяем парсер, добавляя обработку тега <GoogleKnowledgeGraph> 
+	 * Расширяем парсер, добавляя обработку тега <GoogleKnowledgeGraphHooks>
 	 */
 	public static function onParserSetup( Parser $parser ) {
 		$parser->setHook( 'GoogleKnowledgeGraph', 'GoogleKnowledgeGraphHooks::processGoogleKnowledgeGraphTag' );

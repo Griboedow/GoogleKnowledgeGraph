@@ -40,7 +40,7 @@
 		"remoteExtPath": "GoogleKnowledgeGraph/modules"
 	},
 	"Hooks": {
-		"BeforePageDisplay": "GoogleKnowledgeGraphHooks::onBeforePageDisplay",
+		"OutputPageParserOutput": "GoogleKnowledgeGraphHooks::onBeforeHtmlAddedToOutput",
 		"ParserFirstCallInit": "GoogleKnowledgeGraphHooks::onParserSetup"
 	},
 	"config": {
