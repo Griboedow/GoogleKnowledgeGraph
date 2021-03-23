@@ -1,5 +1,5 @@
 ( function ( mw, $ ) {
-	$(".googleKnowledgeGraph").each( function(index, element) {
+	$( ".googleKnowledgeGraph" ).each( function( index, element ) {
 		$.ajax({
 			type: "GET", 
 			url: mw.util.wikiScript( 'api' ),
