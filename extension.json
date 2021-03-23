@@ -11,9 +11,6 @@
 	"requires": {
 		"MediaWiki": ">= 1.29.0"
 	},
-	"APIModules": {
-		"askgoogleknowledgegraph": "ApiAskGoogleKnowledgeGraph"
-	},
 	"MessagesDirs": {
 		"GoogleKnowledgeGraph": [
 			"i18n"
@@ -22,6 +19,17 @@
 	"AutoloadClasses": {
 		"GoogleKnowledgeGraphHooks": "includes/GoogleKnowledgeGraph.hooks.php",
 		"ApiAskGoogleKnowledgeGraph": "includes/ApiAskGoogleKnowledgeGraph.php"
+	},
+	"APIModules": {
+		"askgoogleknowledgegraph": "ApiAskGoogleKnowledgeGraph"
+	},
+	"Hooks": {
+		"OutputPageParserOutput": "GoogleKnowledgeGraphHooks::onBeforeHtmlAddedToOutput",
+		"ParserFirstCallInit": "GoogleKnowledgeGraphHooks::onParserSetup"
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "GoogleKnowledgeGraph/modules"
 	},
 	"ResourceModules": {
 		"ext.GoogleKnowledgeGraph": {	
@@ -34,14 +42,6 @@
 				"ext.GoogleKnowledgeGraph.css"
 			]
 		}
-	},
-	"ResourceFileModulePaths": {
-		"localBasePath": "modules",
-		"remoteExtPath": "GoogleKnowledgeGraph/modules"
-	},
-	"Hooks": {
-		"OutputPageParserOutput": "GoogleKnowledgeGraphHooks::onBeforeHtmlAddedToOutput",
-		"ParserFirstCallInit": "GoogleKnowledgeGraphHooks::onParserSetup"
 	},
 	"config": {
 		"GoogleApiLanguage": {
