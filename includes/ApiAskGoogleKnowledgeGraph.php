@@ -42,7 +42,7 @@ class ApiAskGoogleKnowledgeGraph extends ApiBase {
 
 	/**
 	 * Get data from Google Knowledge Graph, 
-     * suggesting that the first result is a correct one. 
+	 * suggesting that the first result is a correct one. 
 	 * If you want to have a more specific request (for example, specify type: person/organization/etc), 
 	 * you should add additional params
 	 */
