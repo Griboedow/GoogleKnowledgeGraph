@@ -4,7 +4,7 @@
 	"author": [
 		"Nikolai Kochkin"
 	],
-	"url": "https://habr.com/ru/company/veeam/blog/544534/",
+	"url": "https://www.mediawiki.org/wiki/Extension:GoogleKnowledgeGraph",
 	"descriptionmsg": "googleknowledgegraph-description",
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
