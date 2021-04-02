@@ -1,32 +1,34 @@
 <?php
 
-/** 
- * Класс включает в себя реализацию и описание API метода askgoogleknowledgegraph
- * Для простоты я не реализую кеширование, любопытные могут подсмотреть реализацию тут: 
- * https://github.com/wikimedia/mediawiki-extensions-TextExtracts/blob/master/includes/ApiQueryExtracts.php
- */
+// MediaWiki services is needed to load values of '$wgGoogleApiLanguage' and '$wgGoogleApiToken'
 use MediaWiki\MediaWikiServices;
 
+
+/** 
+ * The class implements and describes API method 'askgoogleknowledgegraph'
+ * For simplicity I don't implement caching. If you want to cache results, there is a good implementation here: 
+ * https://github.com/wikimedia/mediawiki-extensions-TextExtracts/blob/master/includes/ApiQueryExtracts.php
+ */
 class ApiAskGoogleKnowledgeGraph extends ApiBase {
 
 	public function execute() {
 
 		$params = $this->extractRequestParams();
-		// query - обязательный параметр, так что $params['query'] всегда определен
+		// 'query' is mandatory parameter so $params['query'] always defined
 		$description = ApiAskGoogleKnowledgeGraph::getGknDescription( $params['query'] );
 
 
 		/**
-		 * Определяем результат для Get запроса. 
-		 * На самом деле Post запрос отработает с тем же успехом, 
-		 * если специально не отслеживать тип запроса ¯\_(ツ)_/¯.
+		 * Define the 'Get' request result.
+		 * 'Post' requst will return the same in my case. 
+		 * If you want to prohibit 'Post' requests, you should write additional code
 		 */
 		$this->getResult()->addValue( null, "description", $description );
 	}
 
 
 	/** 
-	 * Список поддерживаемых параметров метода
+	 * A list of supported parameters.
 	 */
 	public function getAllowedParams() {
 		return [
@@ -39,15 +41,17 @@ class ApiAskGoogleKnowledgeGraph extends ApiBase {
 
 
 	/**
-	 * Получаем данные из Google Knowledge Graph, 
-     * предполагая, что самый первый результат и есть верный.
+	 * Get data from Google Knowledge Graph, 
+     * suggesting that the first result is a correct one. 
+	 * If you want to have a more specific request (for example, specify type: person/organization/etc), 
+	 * you should add additional params
 	 */
 	private static function getGknDescription( $query ) {
 		
 		/**
-		 * Вытаскиваем параметры языка и токен.
-		 * Все параметры в LocalSettings.php имеют префикс wg, например wgGoogleApiToken.
-		 * Здесь же мы их указываем бех префикса
+		 * Getting parameters specified by use. 
+		 * In LocalSettings.php all params have default prefix wg. For example, '$wgGoogleApiToken'.
+		 * Here we specify these params without prefix
 		 */
 		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'GoogleKnowledgeGraph' );
 		$gkgToken = $config->get( 'GoogleApiToken' );
