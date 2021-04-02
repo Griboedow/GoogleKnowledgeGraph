@@ -1,4 +1,5 @@
-Google Knowledge Graph MediaWiki extension adds tooltips with short description about specified terms. The description received automatically from Google Knowledge Graph. 
+[Google Knowledge Graph MediaWiki extension](https://www.mediawiki.org/wiki/Extension:GoogleKnowledgeGraph) adds tooltips with short description about specified terms. The description received automatically from Google Knowledge Graph. 
+
 
 # Warning
 **The extension is provided only for education purposes.**
