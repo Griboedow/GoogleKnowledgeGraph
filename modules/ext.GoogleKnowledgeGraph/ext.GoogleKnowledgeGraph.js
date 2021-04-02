@@ -13,7 +13,7 @@
 			success: function( jsondata ){
 				/**
 				 * Adding results to a tooltip.
-				 * You may want to add eadditional logic for the case when Lnowledge Graph returns nothing.
+				 * You may want to add eadditional logic for the case when Knowledge Graph returns nothing.
 				 */
 				$( element ).prop( 'title', jsondata.description );
 			}
