@@ -1,6 +1,8 @@
 [GoogleKnowledgeGraph MediaWiki extension](https://www.mediawiki.org/wiki/Extension:GoogleKnowledgeGraph) adds tooltips with short description about specified terms. The description received automatically from Google Knowledge Graph. 
 
-There is a Russian article with detailed description of how it works: https://habr.com/ru/company/veeam/blog/544534/
+Main purpose of the extension is to show on a simple example how to develop MediaWiki extensions, that is why you see quite many comments for each and every method. 
+
+There is a Russian article with detailed description of the extension development: https://habr.com/ru/company/veeam/blog/544534/
 
 # Warning
 **The extension is provided only for education purposes.**

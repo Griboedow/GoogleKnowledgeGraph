@@ -75,19 +75,19 @@ class ApiAskGoogleKnowledgeGraph extends ApiBase {
 		$response = json_decode( curl_exec( $ch ), true );
 		curl_close( $ch );
 
-		if( count($response['itemListElement']) == 0 ){
+		if( count( $response['itemListElement'] ) == 0 ){
 			return "Nothing found by your request \"$query\"";
 		}
 		
-		if( !isset($response['itemListElement'][0]['result']) ){
+		if( !isset( $response['itemListElement'][0]['result'] ) ){
 			return "Unknown GKG result format for request \"$query\"";
 		}
 
-		if( !isset($response['itemListElement'][0]['result']['detailedDescription']) ){
+		if( !isset( $response['itemListElement'][0]['result']['detailedDescription'] ) ){
 			return "detailedDescription was not provided by GKG for request \"$query\"";
 		}
 		
-		if( !isset($response['itemListElement'][0]['result']['detailedDescription']['articleBody']) ){
+		if( !isset( $response['itemListElement'][0]['result']['detailedDescription']['articleBody'] ) ){
 			return "articleBody was not provided by GKG for request \"$query\"";
 		}
 		
