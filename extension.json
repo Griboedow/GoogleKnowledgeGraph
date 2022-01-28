@@ -2,7 +2,7 @@
 	"name": "GoogleKnowledgeGraph",
 	"version": "0.1.0",
 	"author": [
-		"Nikolai Kochkin"
+		"[https://www.mediawiki.org/wiki/User:Urfiner Urfiner]"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:GoogleKnowledgeGraph",
 	"descriptionmsg": "googleknowledgegraph-description",
