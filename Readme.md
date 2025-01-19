@@ -25,7 +25,7 @@ https://console.cloud.google.com/flows/enableapi?apiid=kgsearch.googleapis.com&c
 To use the extension add on a page tag:
 
 ```html
-<GoogleKnowledgeGraph query="Mario">
+<GoogleKnowledgeGraph query="Mario"/>
 ```
 and save the page
 

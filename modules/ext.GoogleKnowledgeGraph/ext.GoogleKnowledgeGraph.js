@@ -15,7 +15,8 @@
 				 * Adding results to a tooltip.
 				 * You may want to add eadditional logic for the case when Knowledge Graph returns nothing.
 				 */
-				$( element ).prop( 'title', jsondata.description );
+				$( element ).prop( 'title', JSON.stringify(jsondata.description) );
+				
 			}
 		});
 	});

@@ -4,20 +4,6 @@
  * Hooks used by GoogleKnowledgeGraph extension 
  */
 class GoogleKnowledgeGraphHooks {
-
-	/**
-	 * The hook will be runned after parsing is done but before html is added to a page output.
-	 * Details are here: https://www.mediawiki.org/wiki/Manual:Hooks/OutputPageParserOutput
-	 */
-	public static function onBeforeHtmlAddedToOutput( OutputPage &$out, ParserOutput $parserOutput ) {
-		/**
-		 * This is the perfect place to load our frontend.
-		 * The frontend module 'ext.GoogleKnowledgeGraph' is defined in extension.json
-		 */ 
-		$out->addModules( 'ext.GoogleKnowledgeGraph' );
-		return true;
-	}
-
 	
 	/**
 	 * We extend parser here.
@@ -41,6 +27,12 @@ class GoogleKnowledgeGraphHooks {
 			// If parameter 'query' is not presented in the tag, we have nothing to output
 			return '';
 		}
+
+		/**
+		 * This is the perfect place to load our frontend.
+		 * The frontend module 'ext.GoogleKnowledgeGraph' is defined in extension.json
+		 */ 
+		$parser->getOutput()->addModules( ['ext.GoogleKnowledgeGraph'] );
 
 		/**
 		 * <GoogleKnowledgeGraph query="MyQuery"> will be replaced with <span class="googleKnowledgeGraph">MyQuery</span>

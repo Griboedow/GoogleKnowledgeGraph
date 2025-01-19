@@ -74,7 +74,11 @@ class ApiAskGoogleKnowledgeGraph extends ApiBase {
 		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
 		$response = json_decode( curl_exec( $ch ), true );
 		curl_close( $ch );
-
+		
+		if( $response['error']){
+			return $response['error'];
+		}
+		
 		if( count( $response['itemListElement'] ) == 0 ){
 			return "Nothing found by your request \"$query\"";
 		}
